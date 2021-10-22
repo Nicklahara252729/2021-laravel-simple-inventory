@@ -48,37 +48,44 @@
         <ul class="nav">
 
             <li class="nav-item active ">
-                <a class="nav-link" href="dashboard.html">
+                <a class="nav-link" href="{{url('/')}}">
                     <i class="material-icons">dashboard</i>
                     <p> Dashboard </p>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link" href="widgets.html">
+                <a class="nav-link" href="{{url('user')}}">
                     <i class="material-icons">person</i>
                     <p> User </p>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link" href="widgets.html">
-                    <i class="material-icons">widgets</i>
+                <a class="nav-link" href="{{url('gudang-atk')}}">
+                    <i class="material-icons">architecture</i>
                     <p> Gudang ATK </p>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link" href="charts.html">
-                    <i class="material-icons">timeline</i>
+                <a class="nav-link" href="{{url('gudang-kimia')}}">
+                    <i class="material-icons">biotech</i>
                     <p> Gudang Kimia </p>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link" href="calendar.html">
-                    <i class="material-icons">date_range</i>
+                <a class="nav-link" href="{{url('gudang-dokumentasi')}}">
+                    <i class="material-icons">book</i>
                     <p> Gudang Dokumentasi </p>
+                </a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="{{url('history')}}">
+                    <i class="material-icons">date_range</i>
+                    <p> History </p>
                 </a>
             </li>
 
