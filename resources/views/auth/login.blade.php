@@ -2,11 +2,11 @@
 @section('content')
 @include('themes.auth-element.header')
 <div class="wrapper wrapper-full-page">
-    <div class="page-header login-page header-filter" filter-color="black"
-        style="background-image: url('assets/img/login.jpg'); background-size: cover; background-position: top center;">
+    <div class="page-header login-page header-filter" filter-color="black" style="background-image: url('assets/img/login.jpg'); background-size: cover; background-position: top center;">
         <div class="container">
             <div class="col-lg-4 col-md-6 col-sm-6 ml-auto mr-auto">
-                <form class="form" method="" action="#">
+                <form action="{{ route('prosesLogin') }}" method="POST">
+                    @csrf
                     <div class="card card-login card-hidden">
                         <div class="card-header card-header-rose text-center">
                             <h4 class="card-title">LOGIN AREA</h4>
@@ -20,7 +20,7 @@
                                             <i class="material-icons">email</i>
                                         </span>
                                     </div>
-                                    <input type="email" class="form-control" placeholder="Email...">
+                                    <input type="text" required name="username" id="username" class="form-control" placeholder="Username...">
                                 </div>
                             </span>
                             <span class="bmd-form-group">
@@ -30,12 +30,12 @@
                                             <i class="material-icons">lock_outline</i>
                                         </span>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="Password...">
+                                    <input type="password" name="password" id="password" required class="form-control" placeholder="Password...">
                                 </div>
                             </span>
                         </div>
                         <div class="card-footer justify-content-center">
-                            <a href="{{url('dashboard')}}" class="btn btn-rose btn-link btn-lg">LOGIN TO SYSTEM</a>
+                            <button type="submit" class="btn btn-rose btn-md">LOGIN TO SYSTEM</button>
                         </div>
                     </div>
                 </form>
