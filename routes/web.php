@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Barang\BarangController;
+use App\Http\Controllers\User\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,11 @@ Route::middleware(['web'])->group(function () {
     /**
      * user
      */
+    Route::get('/user', [UserController::class, 'index'])->name("user");
+    Route::get('/view-user', [UserController::class, 'viewData'])->name("user.viewData");
+    Route::get('/get-user/{id}', [UserController::class,'getData'])->name("user.getData");
+    Route::get('/delete-user', [UserController::class,'deleteData'])->name("user.deleteData");
+    Route::post('/save-user', [UserController::class,'saveData'])->name("user.saveData");
 
     /**
      * barang

@@ -54,7 +54,7 @@
                 </a>
             </li>
 
-            <li class="nav-item ">
+            <li class="nav-item <?= ($active == 'user') ? 'active' : ''; ?>">
                 <a class="nav-link" href="{{url('user')}}">
                     <i class="material-icons">person</i>
                     <p> User </p>

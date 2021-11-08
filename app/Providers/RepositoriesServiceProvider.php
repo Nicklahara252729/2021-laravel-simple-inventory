@@ -22,6 +22,11 @@ class RepositoriesServiceProvider extends ServiceProvider
             'App\Repositories\Barang\BarangRepositories',
             'App\Repositories\Barang\EloquentBarangRepositories',
         );
+
+        $this->app->bind(
+            'App\Repositories\User\UserRepositories',
+            'App\Repositories\User\EloquentUserRepositories',
+        );
         
     }
 }
