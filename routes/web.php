@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\GudangAtk\GudangAtkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,5 +32,18 @@ Route::middleware(['web'])->group(function () {
      * dashboard
      */
     Route::get('/dashboard', [DashboardController::class, 'index']);
+
+    /**
+     * user
+     */
+
+    /**
+     * gudang atk
+     */
+    Route::get('/gudang-atk', [GudangAtkController::class, 'index'])->name("gudangAtk");
+    Route::get('/view-gudang-atk', [GudangAtkController::class, 'viewData'])->name("gudangAtk.viewData");
+    Route::get('/get-gudang-atk/{id}', [GudangAtkController::class,'getData'])->name("gudangAtk.getData");
+    Route::get('/delete-gudang-atk', [GudangAtkController::class,'deleteData'])->name("gudangAtk.deleteData");
+    Route::post('/save-gudang-atk', [GudangAtkController::class,'saveData'])->name("gudangAtk.saveData");
 });
 

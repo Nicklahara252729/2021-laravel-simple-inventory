@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Helper\Authorization;
 use Illuminate\Support\Facades\Session;
 
-class DashboardController extends Controller
+class UserController extends Controller
 {
     public function __construct(Request $req){
         date_default_timezone_set('Asia/Jakarta');
@@ -18,8 +18,8 @@ class DashboardController extends Controller
         if (Session::get('id_user') <= 0) :
             return redirect('/');
         endif;
-        $active = "dashboard";
-        $user   = Authorization::getUserInfo();
-        return view("dashboard.index",compact('user','active'));
+
+        $user = Authorization::getUserInfo();
+        return view("user.index",compact('user'));
     }
 }

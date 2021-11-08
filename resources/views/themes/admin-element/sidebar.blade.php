@@ -12,23 +12,17 @@
 
         <div class="user">
             <div class="photo">
-                <img src="{{asset('assets/img/faces/avatar.jpg')}}" />
+                <img src="{{asset('assets/img/faces/usr.jpg')}}" />
             </div>
             <div class="user-info">
                 <a data-toggle="collapse" href="#collapseExample" class="username">
                     <span>
-                        Intan Kartini
+                        {{$user->nama}}
                         <b class="caret"></b>
                     </span>
                 </a>
                 <div class="collapse" id="collapseExample">
                     <ul class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span class="sidebar-mini"> MP </span>
-                                <span class="sidebar-normal"> My Profile </span>
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <span class="sidebar-mini"> EP </span>
@@ -37,8 +31,14 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                <span class="sidebar-mini"> S </span>
-                                <span class="sidebar-normal"> Settings </span>
+                                <span class="sidebar-mini"> CP </span>
+                                <span class="sidebar-normal"> Change Password </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="sidebar-mini"> L </span>
+                                <span class="sidebar-normal"> Logout </span>
                             </a>
                         </li>
                     </ul>
@@ -47,7 +47,7 @@
         </div>
         <ul class="nav">
 
-            <li class="nav-item active ">
+            <li class="nav-item <?= ($active == 'dashboard') ? 'active' : ''; ?> ">
                 <a class="nav-link" href="{{url('/')}}">
                     <i class="material-icons">dashboard</i>
                     <p> Dashboard </p>
@@ -61,7 +61,7 @@
                 </a>
             </li>
 
-            <li class="nav-item ">
+            <li class="nav-item <?= ($active == 'gudang atk') ? 'active' : ''; ?> ">
                 <a class="nav-link" href="{{url('gudang-atk')}}">
                     <i class="material-icons">architecture</i>
                     <p> Gudang ATK </p>

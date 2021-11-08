@@ -17,6 +17,11 @@ class RepositoriesServiceProvider extends ServiceProvider
             'App\Repositories\Auth\Login\LoginRepositories',
             'App\Repositories\Auth\Login\EloquentLoginRepositories',
         );
+
+        $this->app->bind(
+            'App\Repositories\Barang\BarangRepositories',
+            'App\Repositories\Barang\EloquentBarangRepositories',
+        );
         
     }
 }
