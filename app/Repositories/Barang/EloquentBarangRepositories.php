@@ -25,8 +25,7 @@ class EloquentBarangRepositories implements BarangRepositories
 
     public function viewData()
     {
-        return $this->barang->where('jenis_gudang', 'gudang atk')
-            ->orderBy('id', 'desc')
+        return $this->barang->orderBy('id', 'desc')
             ->get();
     }
 
@@ -71,9 +70,9 @@ class EloquentBarangRepositories implements BarangRepositories
 
     public function saveData($req)
     {
-        $cekData = $this->barang->where(['nama' => $req['nama'], 'jenis_gudang' => 'gudang atk'])
+        $cekData = $this->barang->where(['nama' => $req['nama'], 'jenis_gudang' => $req['jenis_gudang']])
                                 ->count();
-        if ($cekData > 0) :
+        if ($cekData > 0 && is_null($req['id'])) :
             $msg = array(
                 'msg'    => 'Data sudah ada',
                 'icon'   => 'error',
@@ -85,7 +84,7 @@ class EloquentBarangRepositories implements BarangRepositories
                 'nama'          => $req['nama'],
                 'kategori'      => $req['kategori'],
                 'jumlah'        => $req['jumlah'],
-                'jenis_gudang'  => "gudang atk",
+                'jenis_gudang'  => $req['jenis_gudang'],
             ];
             if(!is_null($req['id'])):
                 $dataUpdate = array_merge(['updated_at'=>$this->tanggal],$data);

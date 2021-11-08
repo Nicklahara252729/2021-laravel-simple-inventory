@@ -70,21 +70,21 @@
 
             <li class="nav-item ">
                 <a class="nav-link" href="{{url('gudang-kimia')}}">
-                    <i class="material-icons">biotech</i>
+                    <i class="material-icons">autorenew</i>
                     <p> Restock </p>
                 </a>
             </li>
 
             <li class="nav-item ">
                 <a class="nav-link" href="{{url('gudang-dokumentasi')}}">
-                    <i class="material-icons">book</i>
+                    <i class="material-icons">pending_actions</i>
                     <p> Take Out </p>
                 </a>
             </li>
 
             <li class="nav-item ">
                 <a class="nav-link" href="{{url('history')}}">
-                    <i class="material-icons">date_range</i>
+                    <i class="material-icons">history</i>
                     <p> History </p>
                 </a>
             </li>

@@ -28,13 +28,8 @@
             <td>{{ number_format($value->jumlah,0,',','.')}}</td>
             <td>{{$value->jenis_gudang}}</td>
             <td>
-                <div class="dropdown">
-                    <button class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"></button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#" onclick="editData('{{$value->id}}')">Edit</a>
-                        <a class="dropdown-item" href="#" onclick="deleteData('{{$value->id}}');">Hapus</a>
-                    </div>
-                </div>
+                <a href="#" class="btn btn-link btn-warning btn-just-icon edit" onclick="editData('{{$value->id}}')"><i class="material-icons">dvr</i></a>
+                <a href="#" class="btn btn-link btn-danger btn-just-icon remove" onclick="deleteData('{{$value->id}}');"><i class="material-icons">close</i></a>
             </td>
         </tr>
         @endforeach

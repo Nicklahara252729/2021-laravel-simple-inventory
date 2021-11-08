@@ -23,6 +23,7 @@
         $('#jumlah').val('');
         $('#users_access_name').val('');
         $('#form-add-new-data').trigger("reset");
+        $('#jenis_gudang').val("choose").trigger('change');
     }
 
     function show() {
@@ -138,6 +139,9 @@
                     keyboard: false
                 }, 'show');
                 $("#modalLabel").text("Edit Form Data");
+                $("#id").val(res.id);
+                $("#jenis_gudang").val(res.jenis_gudang);
+                $('#jenis_gudang').trigger('change');
                 $("#nama").val(res.nama);
                 $("#kategori").val(res.kategori);
                 $("#jumlah").val(res.jumlah);

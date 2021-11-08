@@ -10,13 +10,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <title>SSC Inventory</title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-        name='viewport' />
-    <link rel="stylesheet" type="text/css"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link href="{{asset('assets/css/material-dashboard.min40a0.css?v=2.0.2')}}" rel="stylesheet" />
     <link href="{{asset('assets/demo/demo.css')}}" rel="stylesheet" />
-
+    <style>
+        .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body class="">
@@ -57,7 +59,7 @@
     <script src="{{asset('assets/js/plugins/arrive.min.js')}}"></script>
     <script src="{{asset('assets/js/plugins/chartist.min.js')}}"></script>
     <script src="{{asset('assets/js/plugins/bootstrap-notify.js')}}"></script>
-    <script src="{{asset('assets/js/material-dashboard.min40a0.js?v=2.0.2')}}" type="text/javascript"></script>    
+    <script src="{{asset('assets/js/material-dashboard.min40a0.js?v=2.0.2')}}" type="text/javascript"></script>
     <script src="{{asset('assets/demo/jquery.sharrre.js')}}"></script>
     @yield('js')
 </body>
