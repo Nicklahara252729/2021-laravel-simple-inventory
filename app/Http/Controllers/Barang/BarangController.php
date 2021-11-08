@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\GudangAtk;
+namespace App\Http\Controllers\Barang;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -8,7 +8,7 @@ use App\Helper\Authorization;
 use Illuminate\Support\Facades\Session;
 use App\Repositories\Barang\BarangRepositories;
 
-class GudangAtkController extends Controller
+class BarangController extends Controller
 {
     public function __construct(Request $req,
     BarangRepositories $BarangRepositories){
@@ -21,9 +21,10 @@ class GudangAtkController extends Controller
         if (Session::get('id_user') <= 0) :
             return redirect('/');
         endif;
-        $active = "gudang atk";
+        $active = "barang";
         $user   = Authorization::getUserInfo();
-        return view("gudang-atk.index",compact('user','active'));
+        $view   = $this->BarangRepositories->viewData();
+        return view("barang.index",compact('user','active','view'));
     }
 
     public function saveData()

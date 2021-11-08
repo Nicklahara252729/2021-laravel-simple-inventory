@@ -7,7 +7,7 @@
                     <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
                 </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Dashboard</a>
+            <a class="navbar-brand" href="#pablo" style="text-transform:capitalize;">{{$active}}</a>
         </div>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"

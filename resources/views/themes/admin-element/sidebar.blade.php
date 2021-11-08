@@ -61,24 +61,24 @@
                 </a>
             </li>
 
-            <li class="nav-item <?= ($active == 'gudang atk') ? 'active' : ''; ?> ">
-                <a class="nav-link" href="{{url('gudang-atk')}}">
-                    <i class="material-icons">architecture</i>
-                    <p> Gudang ATK </p>
+            <li class="nav-item <?= ($active == 'barang') ? 'active' : ''; ?> ">
+                <a class="nav-link" href="{{url('barang')}}">
+                    <i class="material-icons">layers</i>
+                    <p> Barang </p>
                 </a>
             </li>
 
             <li class="nav-item ">
                 <a class="nav-link" href="{{url('gudang-kimia')}}">
                     <i class="material-icons">biotech</i>
-                    <p> Gudang Kimia </p>
+                    <p> Restock </p>
                 </a>
             </li>
 
             <li class="nav-item ">
                 <a class="nav-link" href="{{url('gudang-dokumentasi')}}">
                     <i class="material-icons">book</i>
-                    <p> Gudang Dokumentasi </p>
+                    <p> Take Out </p>
                 </a>
             </li>
 

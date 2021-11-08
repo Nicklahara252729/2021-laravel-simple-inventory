@@ -36,6 +36,7 @@
             @include('themes.admin-element.footer')
         </div>
     </div>
+    @yield('modal')
     <!--   Core JS Files   -->
     <script src="{{asset('assets/js/core/jquery.min.js')}}" type="text/javascript"></script>
     <script src="{{asset('assets/js/core/popper.min.js')}}" type="text/javascript"></script>
@@ -57,8 +58,8 @@
     <script src="{{asset('assets/js/plugins/chartist.min.js')}}"></script>
     <script src="{{asset('assets/js/plugins/bootstrap-notify.js')}}"></script>
     <script src="{{asset('assets/js/material-dashboard.min40a0.js?v=2.0.2')}}" type="text/javascript"></script>    
-    <script src="{{asset('assets/demo/demo.js')}}"></script>
     <script src="{{asset('assets/demo/jquery.sharrre.js')}}"></script>
+    @yield('js')
 </body>
 
 </html>

@@ -5,7 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\GudangAtk\GudangAtkController;
+use App\Http\Controllers\Barang\BarangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,12 +38,12 @@ Route::middleware(['web'])->group(function () {
      */
 
     /**
-     * gudang atk
+     * barang
      */
-    Route::get('/gudang-atk', [GudangAtkController::class, 'index'])->name("gudangAtk");
-    Route::get('/view-gudang-atk', [GudangAtkController::class, 'viewData'])->name("gudangAtk.viewData");
-    Route::get('/get-gudang-atk/{id}', [GudangAtkController::class,'getData'])->name("gudangAtk.getData");
-    Route::get('/delete-gudang-atk', [GudangAtkController::class,'deleteData'])->name("gudangAtk.deleteData");
-    Route::post('/save-gudang-atk', [GudangAtkController::class,'saveData'])->name("gudangAtk.saveData");
+    Route::get('/barang', [BarangController::class, 'index'])->name("barang");
+    Route::get('/view-barang', [BarangController::class, 'viewData'])->name("barang.viewData");
+    Route::get('/get-barang/{id}', [BarangController::class,'getData'])->name("barang.getData");
+    Route::get('/delete-barang', [BarangController::class,'deleteData'])->name("barang.deleteData");
+    Route::post('/save-barang', [BarangController::class,'saveData'])->name("barang.saveData");
 });
 
