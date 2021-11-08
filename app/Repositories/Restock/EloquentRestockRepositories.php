@@ -7,21 +7,19 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 // models
 use App\Models\Barang\Barang;
-use App\Models\TakeOut\TakeOut;
+
 
 use App\Repositories\Barang\BarangRepositories;
 
 class EloquentBarangRepositories implements BarangRepositories
 {
     private $barang;
-    private $takeOut;
     private $tanggal;
 
 
-    public function __construct(Barang $barang, TakeOut $takeOut)
+    public function __construct(Barang $barang)
     {
-        $this->barang  = $barang;
-        $this->takeOut = $takeOut;
+        $this->barang    = $barang;
         $this->tanggal = date('Y-m-d H:i:s');
     }
 
@@ -73,7 +71,7 @@ class EloquentBarangRepositories implements BarangRepositories
     public function saveData($req)
     {
         $cekData = $this->barang->where(['nama' => $req['nama'], 'jenis_gudang' => $req['jenis_gudang']])
-            ->count();
+                                ->count();
         if ($cekData > 0 && is_null($req['id'])) :
             $msg = array(
                 'msg'    => 'Data sudah ada',
@@ -88,14 +86,14 @@ class EloquentBarangRepositories implements BarangRepositories
                 'jumlah'        => $req['jumlah'],
                 'jenis_gudang'  => $req['jenis_gudang'],
             ];
-            if (!is_null($req['id'])) :
-                $dataUpdate = array_merge(['updated_at' => $this->tanggal], $data);
-                $saveData = $this->barang->where('id', $req['id'])
-                    ->update($dataUpdate);
-            else :
+            if(!is_null($req['id'])):
+                $dataUpdate = array_merge(['updated_at'=>$this->tanggal],$data);
+                $saveData = $this->barang->where('id',$req['id'])
+                                         ->update($dataUpdate);
+            else:
                 $saveData = $this->barang->create($data);
             endif;
-
+            
             if ($saveData) :
                 DB::commit();
                 $msg = array(
@@ -111,37 +109,6 @@ class EloquentBarangRepositories implements BarangRepositories
                     'status' => false
                 );
             endif;
-        endif;
-        return $msg;
-    }
-
-    public function saveTakeOutData($req)
-    {
-        DB::beginTransaction();
-        $data = [
-            'nama'           => $req['nama'],
-            'id_barang'      => $req['id_barang'],
-            'tgl_take_out'   => $req['tgl_take_out'],
-            'jumlah_take_out'=> $req['jumlah_take_out'],
-        ];
-        $saveData    = $this->takeOut->create($data);
-        $getData     = $this->barang->where(['id' => $req['id_barang']])->first();
-        $barangUpdate= $this->barang->where('id', $req['id_barang'])
-                                    ->update(['jumlah'=>$getData->jumlah - $req['jumlah_take_out']]);
-        if ($saveData && $barangUpdate) :
-            DB::commit();
-            $msg = array(
-                'msg'    => 'Data berhasil disimpan',
-                'icon'   => 'success',
-                'status' => true
-            );
-        else :
-            DB::rollback();
-            $msg = array(
-                'msg'    => 'Gagal menyimpan data pengguna',
-                'icon'   => 'error',
-                'status' => false
-            );
         endif;
         return $msg;
     }

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\GudangDokumentasi;
+namespace App\Http\Controllers\Restock;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Helper\Authorization;
 use Illuminate\Support\Facades\Session;
 
-class GudangDokumentasiController extends Controller
+class RestockController extends Controller
 {
     public function __construct(Request $req){
         date_default_timezone_set('Asia/Jakarta');

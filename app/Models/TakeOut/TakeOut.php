@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\Barang;
+namespace App\Models\TakeOut;
 use Illuminate\Database\Eloquent\Model;
 
-class Barang extends Model
+class TakeOut extends Model
 {
-    protected $table = "barang";
+    protected $table = "take_out";
     /**
      * The attributes that are mass assignable.
      *
@@ -13,12 +13,12 @@ class Barang extends Model
      */
     protected $fillable = [
         'id', 
+        'id_barang',
         'nama',
-        'kategori',
-        'jumlah',
-        'jenis_gudang',  
+        'tgl_take_out',
+        'jumlah_take_out',  
         'created_at',
-        'updated_at'
+        'updated_at'        
     ];
 
 }

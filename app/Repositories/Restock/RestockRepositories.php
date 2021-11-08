@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Repositories\Barang;
+namespace App\Repositories\Restock;
 
-interface BarangRepositories
+interface RestockRepositories
 {
     public function viewData(); 
     public function getData($id);
     public function deleteData($id);
     public function saveData(array $attributes);
-    public function saveTakeOutData(array $attributes);
 }

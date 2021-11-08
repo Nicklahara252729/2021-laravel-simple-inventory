@@ -68,21 +68,13 @@
                 </a>
             </li>
 
-            <li class="nav-item ">
-                <a class="nav-link" href="{{url('gudang-kimia')}}">
+            <li class="nav-item <?= ($active == 'restock') ? 'active' : ''; ?>">
+                <a class="nav-link" href="{{url('restock')}}">
                     <i class="material-icons">autorenew</i>
                     <p> Restock </p>
                 </a>
             </li>
-
-            <li class="nav-item ">
-                <a class="nav-link" href="{{url('gudang-dokumentasi')}}">
-                    <i class="material-icons">pending_actions</i>
-                    <p> Take Out </p>
-                </a>
-            </li>
-
-            <li class="nav-item ">
+            <li class="nav-item <?= ($active == 'history') ? 'active' : ''; ?>">
                 <a class="nav-link" href="{{url('history')}}">
                     <i class="material-icons">history</i>
                     <p> History </p>

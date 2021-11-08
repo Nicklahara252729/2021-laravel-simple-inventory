@@ -32,7 +32,14 @@ class BarangController extends Controller
         $req      = $this->request;
         $response = $this->BarangRepositories->saveData($req);
         return response($response);
-    }    
+    }
+    
+    public function saveTakeOutData()
+    {
+        $req      = $this->request;
+        $response = $this->BarangRepositories->saveTakeOutData($req);
+        return response($response);
+    }
 
     public function deleteData()
     {

@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Barang\BarangController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\History\HistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,5 +52,14 @@ Route::middleware(['web'])->group(function () {
     Route::get('/get-barang/{id}', [BarangController::class,'getData'])->name("barang.getData");
     Route::get('/delete-barang', [BarangController::class,'deleteData'])->name("barang.deleteData");
     Route::post('/save-barang', [BarangController::class,'saveData'])->name("barang.saveData");
+    Route::post('/save-take-out-barang', [BarangController::class,'saveTakeOutData'])->name("barang.saveTakeOutData");
+
+    /**
+     * history
+     */
+    Route::get('/history', [HistoryController::class, 'index'])->name("history");
+    Route::get('/view-history', [HistoryController::class, 'viewData'])->name("history.viewData");
+    Route::get('/get-history/{id}', [HistoryController::class,'getData'])->name("history.getData");
+    Route::post('/save-history', [HistoryController::class,'saveData'])->name("history.saveData");
 });
 

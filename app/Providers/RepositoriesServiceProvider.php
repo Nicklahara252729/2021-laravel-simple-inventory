@@ -27,6 +27,11 @@ class RepositoriesServiceProvider extends ServiceProvider
             'App\Repositories\User\UserRepositories',
             'App\Repositories\User\EloquentUserRepositories',
         );
+
+        $this->app->bind(
+            'App\Repositories\History\HistoryRepositories',
+            'App\Repositories\History\EloquentHistoryRepositories',
+        );
         
     }
 }
