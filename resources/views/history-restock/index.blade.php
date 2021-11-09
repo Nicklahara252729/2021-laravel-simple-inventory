@@ -7,16 +7,12 @@
                 <div class="card-icon">
                     <i class="material-icons">architecture</i>
                 </div>
-                <h4 class="card-title">Data Barang</h4>
+                <h4 class="card-title">Data History Restock</h4>
             </div>
             <hr>
             <div class="card-body">
-                <div class="toolbar">
-                    <button class="btn btn-info" onclick="show();">Tambah Data Baru</button>
-                </div>
-                <hr>
                 <div class="material-datatables">
-                    @include('barang.table.tbl-barang')
+                    @include('history-restock.table.tbl-history-restock')
                 </div>
             </div>
             <!-- end content-->
@@ -27,8 +23,8 @@
 </div>
 @endsection
 @section('modal')
-@include('barang.modal.modal-barang')
+@include('history-restock.modal.modal-history-restock')
 @stop
 @section('js')
-@include('barang.js.js-barang')
+@include('history-restock.js.js-history-restock')
 @stop

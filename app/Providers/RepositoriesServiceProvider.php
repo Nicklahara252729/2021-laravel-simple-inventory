@@ -32,6 +32,11 @@ class RepositoriesServiceProvider extends ServiceProvider
             'App\Repositories\History\HistoryRepositories',
             'App\Repositories\History\EloquentHistoryRepositories',
         );
+
+        $this->app->bind(
+            'App\Repositories\HistoryRestock\HistoryRestockRepositories',
+            'App\Repositories\HistoryRestock\EloquentHistoryRestockRepositories',
+        );
         
     }
 }

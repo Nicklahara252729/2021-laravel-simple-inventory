@@ -69,7 +69,7 @@
             </li>
 
             <li class="nav-item <?= ($active == 'restock') ? 'active' : ''; ?>">
-                <a class="nav-link" href="{{url('restock')}}">
+                <a class="nav-link" href="{{url('history-restock')}}">
                     <i class="material-icons">autorenew</i>
                     <p> History Restock </p>
                 </a>

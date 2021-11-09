@@ -8,6 +8,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Barang\BarangController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\History\HistoryController;
+use App\Http\Controllers\HistoryRestock\HistoryRestockController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,14 @@ Route::middleware(['web'])->group(function () {
     Route::post('/save-barang', [BarangController::class,'saveData'])->name("barang.saveData");
     Route::post('/save-take-out-barang', [BarangController::class,'saveTakeOutData'])->name("barang.saveTakeOutData");
     Route::post('/save-restock-barang', [BarangController::class,'saveRestock'])->name("barang.saveRestock");
+
+    /**
+     * history
+     */
+    Route::get('/history-restock', [HistoryRestockController::class, 'index'])->name("historyRestock");
+    Route::get('/view-history-restock', [HistoryRestockController::class, 'viewData'])->name("historyRestock.viewData");
+    Route::get('/get-history-restock/{id}', [HistoryRestockController::class,'getData'])->name("historyRestock.getData");
+    Route::post('/save-history-restock', [HistoryRestockController::class,'saveData'])->name("historyRestock.saveData");
 
     /**
      * history

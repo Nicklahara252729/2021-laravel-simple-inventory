@@ -3,9 +3,8 @@
         <tr>
             <th>No</th>
             <th>Nama Barang</th>
-            <th>Kategori</th>
-            <th>Stok</th>
-            <th>Jenis Gudang</th>
+            <th>Tanggal Restock</th>
+            <th>Jumlah Restock</th>
             <th class="disabled-sorting text-right"></th>
         </tr>
     </thead>
@@ -13,9 +12,8 @@
         <tr>
             <th>No</th>
             <th>Nama Barang</th>
-            <th>Kategori</th>
-            <th>Stok</th>
-            <th>Jenis Gudang</th>
+            <th>Tanggal Restock</th>
+            <th>Jumlah Restock</th>
             <th class="text-right"></th>
         </tr>
     </tfoot>
@@ -24,12 +22,10 @@
         <tr>
             <td>{{$key +1}}</td>
             <td>{{$value->nama}}</td>
-            <td>{{$value->kategori}}</td>
-            <td>{{ number_format($value->jumlah,0,',','.')}}</td>
-            <td>{{$value->jenis_gudang}}</td>
+            <td>{{$value->tgl_restock}}</td>
+            <td>{{$value->jumlah_restock}}</td>
             <td class="text-right">
-                <a href="#" class="btn btn-link btn-warning btn-just-icon edit" onclick="editData('{{$value->id}}')"><i class="material-icons">dvr</i></a>
-                <a href="#" class="btn btn-link btn-danger btn-just-icon remove" onclick="deleteData('{{$value->id}}');"><i class="material-icons">close</i></a>
+                <a href="#" class="btn btn-link btn-warning btn-just-icon edit" onclick="editData('{{$value->id}}')"><i class="material-icons">mode_edit</i></a>
             </td>
         </tr>
         @endforeach
