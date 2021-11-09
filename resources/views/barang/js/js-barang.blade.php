@@ -28,7 +28,12 @@
 
     function clearFormTakeOut() {
         $('#modalTakeout').modal('hide');        
-        $('#form-add-new-data').trigger("reset");
+        $('#form-take-out').trigger("reset");
+    }
+
+    function clearFormRestock() {
+        $('#modalRestock').modal('hide');        
+        $('#form-restock').trigger("reset");
     }
 
     function show() {
@@ -104,7 +109,47 @@
                             confirm: "Ok",
                         }
                     }).then((ok) => {
-                        clearForm();
+                        clearFormTakeOut();
+                        window.location.reload();
+                    });
+                } else {
+                    swal({
+                        title: r.icon,
+                        text: r.msg,
+                        icon: r.icon
+                    });
+                }
+            }
+        });
+    });
+
+    $('#form-restock').on('submit', function(e) {
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: '{{route("barang.saveRestock")}}',
+            method: 'post',
+            data: new FormData(this),
+            dataType: "json",
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(r) {
+                if (r.icon == 'success') {
+                    swal({
+                        title: "Success",
+                        icon: r.icon,
+                        text: r.msg,
+                        dangerMode: false,
+                        buttons: {
+                            confirm: "Ok",
+                        }
+                    }).then((ok) => {
+                        clearFormRestock();
                         window.location.reload();
                     });
                 } else {
@@ -207,5 +252,13 @@
             keyboard: false
         }, 'show');
         $("#id_barang").val(id);
+    }
+
+    function restock(id) {
+        $("#modalRestock").modal({
+            backdrop: 'static',
+            keyboard: false
+        }, 'show');
+        $("#id_barang_restock").val(id);
     }
 </script>

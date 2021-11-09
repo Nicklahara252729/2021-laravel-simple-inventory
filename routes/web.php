@@ -53,6 +53,7 @@ Route::middleware(['web'])->group(function () {
     Route::get('/delete-barang', [BarangController::class,'deleteData'])->name("barang.deleteData");
     Route::post('/save-barang', [BarangController::class,'saveData'])->name("barang.saveData");
     Route::post('/save-take-out-barang', [BarangController::class,'saveTakeOutData'])->name("barang.saveTakeOutData");
+    Route::post('/save-restock-barang', [BarangController::class,'saveRestock'])->name("barang.saveRestock");
 
     /**
      * history

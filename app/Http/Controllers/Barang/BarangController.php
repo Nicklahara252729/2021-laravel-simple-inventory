@@ -41,6 +41,13 @@ class BarangController extends Controller
         return response($response);
     }
 
+    public function saveRestock()
+    {
+        $req      = $this->request;
+        $response = $this->BarangRepositories->saveRestock($req);
+        return response($response);
+    }
+
     public function deleteData()
     {
         $req      = $this->request;

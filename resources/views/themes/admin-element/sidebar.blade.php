@@ -48,7 +48,7 @@
         <ul class="nav">
 
             <li class="nav-item <?= ($active == 'dashboard') ? 'active' : ''; ?> ">
-                <a class="nav-link" href="{{url('/')}}">
+                <a class="nav-link" href="{{url('dashboard')}}">
                     <i class="material-icons">dashboard</i>
                     <p> Dashboard </p>
                 </a>
@@ -71,13 +71,13 @@
             <li class="nav-item <?= ($active == 'restock') ? 'active' : ''; ?>">
                 <a class="nav-link" href="{{url('restock')}}">
                     <i class="material-icons">autorenew</i>
-                    <p> Restock </p>
+                    <p> History Restock </p>
                 </a>
             </li>
             <li class="nav-item <?= ($active == 'history') ? 'active' : ''; ?>">
                 <a class="nav-link" href="{{url('history')}}">
                     <i class="material-icons">history</i>
-                    <p> History </p>
+                    <p> History Take Out</p>
                 </a>
             </li>
 

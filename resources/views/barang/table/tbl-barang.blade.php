@@ -16,7 +16,7 @@
             <th>Kategori</th>
             <th>Stok</th>
             <th>Jenis Gudang</th>
-            <th class="text-right"></th>
+            <th class="text-right" width="200"></th>
         </tr>
     </tfoot>
     <tbody>
@@ -28,9 +28,10 @@
             <td>{{ number_format($value->jumlah,0,',','.')}}</td>
             <td>{{$value->jenis_gudang}}</td>
             <td class="text-right">
+                <a href="#" class="btn btn-link btn-info btn-just-icon " title="restock" onclick="restock('{{$value->id}}')"><i class="material-icons">autorenew</i></a>
                 <a href="#" class="btn btn-link btn-primary btn-just-icon " title="take out" onclick="takeOut('{{$value->id}}')"><i class="material-icons">touch_app</i></a>
-                <a href="#" class="btn btn-link btn-warning btn-just-icon edit" title="edit" onclick="editData('{{$value->id}}')"><i class="material-icons">mode_edit</i></a>
-                <a href="#" class="btn btn-link btn-danger btn-just-icon remove" title="hapus" onclick="deleteData('{{$value->id}}');"><i class="material-icons">close</i></a>
+                <a href="#" class="btn btn-link btn-warning btn-just-icon" title="edit" onclick="editData('{{$value->id}}')"><i class="material-icons">mode_edit</i></a>
+                <a href="#" class="btn btn-link btn-danger btn-just-icon" title="hapus" onclick="deleteData('{{$value->id}}');"><i class="material-icons">close</i></a>
             </td>
         </tr>
         @endforeach

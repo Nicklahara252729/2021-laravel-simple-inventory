@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 // models
 use App\Models\Barang\Barang;
 use App\Models\TakeOut\TakeOut;
+use App\Models\Restock\Restock;
 
 use App\Repositories\Barang\BarangRepositories;
 
@@ -15,13 +16,16 @@ class EloquentBarangRepositories implements BarangRepositories
 {
     private $barang;
     private $takeOut;
+    private $restock;
     private $tanggal;
 
 
-    public function __construct(Barang $barang, TakeOut $takeOut)
+    public function __construct(Barang $barang, TakeOut $takeOut,
+    Restock $restock)
     {
         $this->barang  = $barang;
         $this->takeOut = $takeOut;
+        $this->restock = $restock;
         $this->tanggal = date('Y-m-d H:i:s');
     }
 
@@ -128,6 +132,36 @@ class EloquentBarangRepositories implements BarangRepositories
         $getData     = $this->barang->where(['id' => $req['id_barang']])->first();
         $barangUpdate= $this->barang->where('id', $req['id_barang'])
                                     ->update(['jumlah'=>$getData->jumlah - $req['jumlah_take_out']]);
+        if ($saveData && $barangUpdate) :
+            DB::commit();
+            $msg = array(
+                'msg'    => 'Data berhasil disimpan',
+                'icon'   => 'success',
+                'status' => true
+            );
+        else :
+            DB::rollback();
+            $msg = array(
+                'msg'    => 'Gagal menyimpan data pengguna',
+                'icon'   => 'error',
+                'status' => false
+            );
+        endif;
+        return $msg;
+    }
+
+    public function saveRestock($req)
+    {
+        DB::beginTransaction();
+        $data = [
+            'id_barang'     => $req['id_barang_restock'],
+            'tgl_restock'   => $req['tgl_restock'],
+            'jumlah_restock'=> $req['jumlah_restock'],
+        ];
+        $saveData    = $this->restock->create($data);
+        $getData     = $this->barang->where(['id' => $req['id_barang_restock']])->first();
+        $barangUpdate= $this->barang->where('id', $req['id_barang_restock'])
+                                    ->update(['jumlah'=>$getData->jumlah + $req['jumlah_restock']]);
         if ($saveData && $barangUpdate) :
             DB::commit();
             $msg = array(

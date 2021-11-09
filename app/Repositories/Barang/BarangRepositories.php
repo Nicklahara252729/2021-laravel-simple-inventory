@@ -9,4 +9,5 @@ interface BarangRepositories
     public function deleteData($id);
     public function saveData(array $attributes);
     public function saveTakeOutData(array $attributes);
+    public function saveRestock(array $attributes);
 }
