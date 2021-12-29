@@ -60,9 +60,10 @@
     <script src="{{asset('assets/js/plugins/chartist.min.js')}}"></script>
     <script src="{{asset('assets/js/plugins/bootstrap-notify.js')}}"></script>
     <script src="{{asset('assets/js/material-dashboard.min40a0.js?v=2.0.2')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/demo/jquery.sharrre.js')}}"></script>
+    
     @include('themes.admin-element.js')
     @yield('js')
+    <script src="{{asset('assets/demo/jquery.sharrre.js')}}"></script>
 </body>
 
 </html>
