@@ -76,4 +76,155 @@
     $(document).ready(function() {
         demo.initCharts();
     });
+
+    function clearForm(key) {
+        $('#'+key).modal('hide');
+        $('#nama').val('');
+        $('#kategori').val('');
+        $('#jumlah').val('');
+        $('#users_access_name').val('');
+        $('#form-add-new-data').trigger("reset");
+        $('#jenis_gudang').val("choose").trigger('change');
+    }
+
+    function showAtk() {
+        $('#modalAtk').modal({
+            backdrop: 'static',
+            keyboard: false
+        }, 'show');
+    }
+
+    function showKimia() {
+        $('#modalKimia').modal({
+            backdrop: 'static',
+            keyboard: false
+        }, 'show');
+    }
+
+    function showDokumen() {
+        $('#modalDokumen').modal({
+            backdrop: 'static',
+            keyboard: false
+        }, 'show');
+    }
+
+    $('#form-atk').on('submit', function(e) {
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: '{{route("gudangAtk.saveData")}}',
+            method: 'post',
+            data: new FormData(this),
+            dataType: "json",
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(r) {
+                if (r.icon == 'success') {
+                    swal({
+                        title: "Success",
+                        icon: r.icon,
+                        text: r.msg,
+                        dangerMode: false,
+                        buttons: {
+                            confirm: "Ok",
+                        }
+                    }).then((ok) => {
+                        clearForm();
+                        window.location.reload();
+                    });
+                } else {
+                    swal({
+                        title: r.icon,
+                        text: r.msg,
+                        icon: r.icon
+                    });
+                }
+            }
+        });
+    });
+
+    $('#form-dokumen').on('submit', function(e) {
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: '{{route("gudangDokumen.saveData")}}',
+            method: 'post',
+            data: new FormData(this),
+            dataType: "json",
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(r) {
+                if (r.icon == 'success') {
+                    swal({
+                        title: "Success",
+                        icon: r.icon,
+                        text: r.msg,
+                        dangerMode: false,
+                        buttons: {
+                            confirm: "Ok",
+                        }
+                    }).then((ok) => {
+                        clearForm();
+                        window.location.reload();
+                    });
+                } else {
+                    swal({
+                        title: r.icon,
+                        text: r.msg,
+                        icon: r.icon
+                    });
+                }
+            }
+        });
+    });
+
+    $('#form-kimia').on('submit', function(e) {
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: '{{route("gudangKimia.saveData")}}',
+            method: 'post',
+            data: new FormData(this),
+            dataType: "json",
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(r) {
+                if (r.icon == 'success') {
+                    swal({
+                        title: "Success",
+                        icon: r.icon,
+                        text: r.msg,
+                        dangerMode: false,
+                        buttons: {
+                            confirm: "Ok",
+                        }
+                    }).then((ok) => {
+                        clearForm();
+                        window.location.reload();
+                    });
+                } else {
+                    swal({
+                        title: r.icon,
+                        text: r.msg,
+                        icon: r.icon
+                    });
+                }
+            }
+        });
+    });
 </script>

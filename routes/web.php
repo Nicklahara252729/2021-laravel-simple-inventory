@@ -9,6 +9,9 @@ use App\Http\Controllers\Barang\BarangController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\History\HistoryController;
 use App\Http\Controllers\HistoryRestock\HistoryRestockController;
+use App\Http\Controllers\GudangAtk\GudangAtkController;
+use App\Http\Controllers\GudangKimia\GudangKimiaController;
+use App\Http\Controllers\GudangDokumen\GudangDokumenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +58,39 @@ Route::middleware(['web'])->group(function () {
     Route::post('/save-barang', [BarangController::class,'saveData'])->name("barang.saveData");
     Route::post('/save-take-out-barang', [BarangController::class,'saveTakeOutData'])->name("barang.saveTakeOutData");
     Route::post('/save-restock-barang', [BarangController::class,'saveRestock'])->name("barang.saveRestock");
+
+    /**
+     * gudang ATK
+     */
+    Route::get('/gudang-atk', [GudangAtkController::class, 'index'])->name("gudangAtk");
+    Route::get('/view-gudang-atk', [GudangAtkController::class, 'viewData'])->name("gudangAtk.viewData");
+    Route::get('/get-gudang-atk/{id}', [GudangAtkController::class,'getData'])->name("gudangAtk.getData");
+    Route::get('/delete-gudang-atk', [GudangAtkController::class,'deleteData'])->name("gudangAtk.deleteData");
+    Route::post('/save-gudang-atk', [GudangAtkController::class,'saveData'])->name("gudangAtk.saveData");
+    Route::post('/save-take-out-gudang-atk', [GudangAtkController::class,'saveTakeOutData'])->name("gudangAtk.saveTakeOutData");
+    Route::post('/save-restock-gudang-atk', [GudangAtkController::class,'saveRestock'])->name("gudangAtk.saveRestock");
+
+    /**
+     * gudang kimia
+     */
+    Route::get('/gudang-kimia', [GudangKimiaController::class, 'index'])->name("gudangKimia");
+    Route::get('/view-gudang-kimia', [GudangKimiaController::class, 'viewData'])->name("gudangKimia.viewData");
+    Route::get('/get-gudang-atk/{id}', [GudangKimiaController::class,'getData'])->name("gudangKimia.getData");
+    Route::get('/delete-gudang-kimia', [GudangKimiaController::class,'deleteData'])->name("gudangKimia.deleteData");
+    Route::post('/save-gudang-kimia', [GudangKimiaController::class,'saveData'])->name("gudangKimia.saveData");
+    Route::post('/save-take-out-gudang-kimia', [GudangKimiaController::class,'saveTakeOutData'])->name("gudangKimia.saveTakeOutData");
+    Route::post('/save-restock-gudang-kimia', [GudangKimiaController::class,'saveRestock'])->name("gudangKimia.saveRestock");
+
+    /**
+     * gudang Dokumentasi
+     */
+    Route::get('/gudang-dokumen', [GudangDokumenController::class, 'index'])->name("gudangDokumen");
+    Route::get('/view-gudang-dokumen', [GudangDokumenController::class, 'viewData'])->name("gudangDokumen.viewData");
+    Route::get('/get-gudang-dokumen/{id}', [GudangDokumenController::class,'getData'])->name("gudangDokumen.getData");
+    Route::get('/delete-gudang-dokumen', [GudangDokumenController::class,'deleteData'])->name("gudangDokumen.deleteData");
+    Route::post('/save-gudang-dokumen', [GudangDokumenController::class,'saveData'])->name("gudangDokumen.saveData");
+    Route::post('/save-take-out-gudang-dokumen', [GudangDokumenController::class,'saveTakeOutData'])->name("gudangDokumen.saveTakeOutData");
+    Route::post('/save-restock-gudang-dokumen', [GudangDokumenController::class,'saveRestock'])->name("gudangDokumen.saveRestock");
 
     /**
      * history

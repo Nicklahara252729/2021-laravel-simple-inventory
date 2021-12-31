@@ -7,10 +7,10 @@
                 <div class="card-icon">
                     <i class="material-icons">layers</i>
                 </div>
-                <h3 class="card-title">Gudang ATk</h3>
+                <h3 class="card-title">Gudang ATK</h3>
             </div>
             <div class="card-footer">
-                <button class="btn btn-warning">Tambah Data Gudang ATK</button>
+                <button class="btn btn-warning" onclick="showAtk();">Tambah Data Gudang ATK</button>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
                 <h3 class="card-title">Gudang Kimia</h3>
             </div>
             <div class="card-footer">
-                <button class="btn btn-rose">Tambah Data Gudang Kimia</button>
+                <button class="btn btn-rose" onclick="showKimia();">Tambah Data Gudang Kimia</button>
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@
                 <h3 class="card-title">Gudang Dokumentasi</h3>
             </div>
             <div class="card-footer">
-                <button class="btn btn-success">Tambah Data Gudang Kimia</button>
+                <button class="btn btn-success" onclick="showDokumen();">Tambah Data Gudang Dokumen</button>
             </div>
         </div>
     </div>
@@ -58,6 +58,11 @@
     </div>
 </div>
 @endsection
+@section('modal')
+@include('dashboard.modal.modal-gudang-atk')
+@include('dashboard.modal.modal-gudang-kimia')
+@include('dashboard.modal.modal-gudang-dokumen')
+@stop
 @section('js')
 @include('dashboard.js.js-dashboard')
 @stop

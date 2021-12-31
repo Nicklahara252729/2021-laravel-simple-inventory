@@ -61,12 +61,38 @@
                 </a>
             </li>
 
-            <li class="nav-item <?= ($active == 'barang') ? 'active' : ''; ?> ">
-                <a class="nav-link" href="{{url('barang')}}">
+            <li class="nav-item <?php if($active == "gudang atk" || $active == "gudang kimia" || $active == "gudang dokumentasi"){ echo "active";} ?>">
+                <a class="nav-link" data-toggle="collapse" href="#formsExamples">
                     <i class="material-icons">layers</i>
-                    <p> Barang </p>
+                    <p> Barang
+                        <b class="caret"></b>
+                    </p>
                 </a>
+
+                <div class="collapse" id="formsExamples">
+                    <ul class="nav">
+                        <li class="nav-item <?= ($active == 'gudang atk') ? 'active' : ''; ?>">
+                            <a class="nav-link" href="{{url('gudang-atk')}}">
+                                <span class="sidebar-mini"> GA </span>
+                                <span class="sidebar-normal"> Gudang ATK </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{url('gudang-kimia')}}">
+                                <span class="sidebar-mini"> GK </span>
+                                <span class="sidebar-normal"> Gudang Kimia </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{url('gudang-dokumen')}}">
+                                <span class="sidebar-mini"> GD </span>
+                                <span class="sidebar-normal"> Gudang Dokumen </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
+
 
             <li class="nav-item <?= ($active == 'restock') ? 'active' : ''; ?>">
                 <a class="nav-link" href="{{url('history-restock')}}">

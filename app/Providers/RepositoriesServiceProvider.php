@@ -37,6 +37,21 @@ class RepositoriesServiceProvider extends ServiceProvider
             'App\Repositories\HistoryRestock\HistoryRestockRepositories',
             'App\Repositories\HistoryRestock\EloquentHistoryRestockRepositories',
         );
+
+        $this->app->bind(
+            'App\Repositories\GudangAtk\GudangAtkRepositories',
+            'App\Repositories\GudangAtk\EloquentGudangAtkRepositories',
+        );
+
+        $this->app->bind(
+            'App\Repositories\GudangKimia\GudangKimiaRepositories',
+            'App\Repositories\GudangKimia\EloquentGudangKimiaRepositories',
+        );
+
+        $this->app->bind(
+            'App\Repositories\GudangDokumen\GudangDokumenRepositories',
+            'App\Repositories\GudangDokumen\EloquentGudangDokumenRepositories',
+        );
         
     }
 }
