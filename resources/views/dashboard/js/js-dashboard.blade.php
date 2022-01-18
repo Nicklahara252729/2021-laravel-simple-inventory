@@ -4,16 +4,22 @@
         initCharts: function() {
 
             /*  **************** Coloured Rounded Line Chart - Line Chart ******************** */
-
-
-            dataColouredRoundedLineChart = {
-                labels: ['\'06', '\'07', '\'08', '\'09', '\'10', '\'11', '\'12', '\'13', '\'14', '\'15'],
+            dataChartAtk = {
+                labels: [
+                    <?php foreach ($chartAtk as $key => $value) {
+                        echo "'\'". $value->nama ."',";
+                    } ?>
+                ],
                 series: [
-                    [287, 480, 290, 554, 690, 690, 500, 752, 650, 900, 944]
+                    [
+                        <?php foreach ($chartAtk as $key => $value) {
+                            echo $value->total . ",";
+                        } ?>
+                    ]
                 ]
             };
 
-            optionsColouredRoundedLineChart = {
+            optionChartAtk = {
                 lineSmooth: Chartist.Interpolation.cardinal({
                     tension: 10
                 }),
@@ -31,24 +37,27 @@
             };
 
 
-            var colouredRoundedLineChart = new Chartist.Line('#colouredRoundedLineChart', dataColouredRoundedLineChart, optionsColouredRoundedLineChart);
+            var chartAtk = new Chartist.Line('#chartAtk', dataChartAtk, optionChartAtk);
 
-            md.startAnimationForLineChart(colouredRoundedLineChart);
-
+            md.startAnimationForLineChart(chartAtk);
 
             /*  **************** Coloured Rounded Line Chart - Line Chart ******************** */
-
-
-            dataColouredBarsChart = {
-                labels: ['\'06', '\'07', '\'08', '\'09', '\'10', '\'11', '\'12', '\'13', '\'14', '\'15'],
+            dataChartKimia = {
+                labels: [
+                    <?php foreach ($chartKimia as $key => $value) {
+                        echo "'\'". $value->nama ."',";
+                    } ?>
+                ],
                 series: [
-                    [287, 385, 490, 554, 586, 698, 695, 752, 788, 846, 944],
-                    [67, 152, 143, 287, 335, 435, 437, 539, 542, 544, 647],
-                    [23, 113, 67, 190, 239, 307, 308, 439, 410, 410, 509]
+                    [
+                        <?php foreach ($chartKimia as $key => $value) {
+                            echo $value->total . ",";
+                        } ?>
+                    ]
                 ]
             };
 
-            optionsColouredBarsChart = {
+            optionChartKimia = {
                 lineSmooth: Chartist.Interpolation.cardinal({
                     tension: 10
                 }),
@@ -66,9 +75,47 @@
             };
 
 
-            var colouredBarsChart = new Chartist.Line('#colouredBarsChart', dataColouredBarsChart, optionsColouredBarsChart);
+            var chartKimia = new Chartist.Line('#chartKimia', dataChartKimia, optionChartKimia);
 
-            md.startAnimationForLineChart(colouredBarsChart);
+            md.startAnimationForLineChart(chartKimia);
+
+            /*  **************** Coloured Rounded Line Chart - Line Chart ******************** */
+            dataChartDokumen = {
+                labels: [
+                    <?php foreach ($chartDokumen as $key => $value) {
+                        echo "'\'". $value->nama ."',";
+                    } ?>
+                ],
+                series: [
+                    [
+                        <?php foreach ($chartDokumen as $key => $value) {
+                            echo $value->total . ",";
+                        } ?>
+                    ]
+                ]
+            };
+
+            optionChartDokumen = {
+                lineSmooth: Chartist.Interpolation.cardinal({
+                    tension: 10
+                }),
+                axisY: {
+                    showGrid: true,
+                    offset: 40
+                },
+                axisX: {
+                    showGrid: false,
+                },
+                low: 0,
+                high: 1000,
+                showPoint: true,
+                height: '300px'
+            };
+
+
+            var chartDokumen = new Chartist.Line('#chartDokumen', dataChartDokumen, optionChartDokumen);
+
+            md.startAnimationForLineChart(chartDokumen);
         }
 
     }
@@ -78,7 +125,7 @@
     });
 
     function clearForm(key) {
-        $('#'+key).modal('hide');
+        $('#' + key).modal('hide');
         $('#nama').val('');
         $('#kategori').val('');
         $('#jumlah').val('');
@@ -108,7 +155,27 @@
         }, 'show');
     }
 
+    function showTable(jenis) {
+        $('#datatables').DataTable({
+            ajax: {
+                url: "{{url('view-dashboard')}}" + "/" + jenis,
+                method: "get",
+                dataSrc: ''
+            },
+            columns: [{
+                    data: 'nama',
+                    name: 'nama'
+                },
+                {
+                    data: 'jumlah',
+                    name: 'jumlah'
+                }
+            ]
+        });
+    }
+
     $('#form-atk').on('submit', function(e) {
+        var jenis = $("#jenis_gudang").val();
         e.preventDefault();
         $.ajaxSetup({
             headers: {
@@ -134,8 +201,10 @@
                             confirm: "Ok",
                         }
                     }).then((ok) => {
-                        clearForm();
-                        window.location.reload();
+                        clearForm("modalAtk");
+                        $("#txt-data-gudang").text("Data " + jenis);
+                        $("#div-data-gudang").attr("style", "display:block;");
+                        showTable(jenis);
                     });
                 } else {
                     swal({

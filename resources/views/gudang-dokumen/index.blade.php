@@ -11,10 +11,6 @@
             </div>
             <hr>
             <div class="card-body">
-                <div class="toolbar">
-                    <button class="btn btn-info" onclick="show();">Tambah Data Baru</button>
-                </div>
-                <hr>
                 <div class="material-datatables">
                     @include('gudang-dokumen.table.tbl-gudang-dokumen')
                 </div>

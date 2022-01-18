@@ -38,6 +38,7 @@ Route::middleware(['web'])->group(function () {
      * dashboard
      */
     Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/view-dashboard/{jenis}', [DashboardController::class, 'viewData'])->name("dashboard.viewData");
 
     /**
      * user

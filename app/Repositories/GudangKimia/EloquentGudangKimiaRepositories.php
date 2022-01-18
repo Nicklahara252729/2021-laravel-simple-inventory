@@ -36,6 +36,15 @@ class EloquentGudangKimiaRepositories implements GudangKimiaRepositories
             ->get();
     }
 
+    public function viewDataByGroup()
+    {
+        return $this->barang->join('take_out',"barang.id","=","take_out.id_barang")
+            ->where('jenis_gudang','gudang kimia')
+            ->groupBy('id_barang')
+            ->select("barang.nama",DB::raw('SUM(jumlah_take_out) as total'))
+            ->get();
+    }
+
     public function getData($id)
     {
         return $this->barang->where('id', $id)

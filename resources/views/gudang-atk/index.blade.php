@@ -10,11 +10,7 @@
                 <h4 class="card-title">Data Gudang ATk</h4>
             </div>
             <hr>
-            <div class="card-body">
-                <div class="toolbar">
-                    <button class="btn btn-info" onclick="show();">Tambah Data Baru</button>
-                </div>
-                <hr>
+            <div class="card-body">                
                 <div class="material-datatables">
                     @include('gudang-atk.table.tbl-gudang-atk')
                 </div>

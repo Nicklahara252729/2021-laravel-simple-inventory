@@ -36,6 +36,15 @@ class EloquentGudangAtkRepositories implements GudangAtkRepositories
             ->get();
     }
 
+    public function viewDataByGroup()
+    {
+        return $this->barang->join('take_out',"barang.id","=","take_out.id_barang")
+            ->where('jenis_gudang','gudang atk')
+            ->groupBy('id_barang')
+            ->select("barang.nama",DB::raw('SUM(jumlah_take_out) as total'))
+            ->get();
+    }
+
     public function getData($id)
     {
         return $this->barang->where('id', $id)
@@ -90,7 +99,7 @@ class EloquentGudangAtkRepositories implements GudangAtkRepositories
             $data = [
                 'nama'          => $req['nama'],                
                 'jumlah'        => $req['jumlah'],
-                'jenis_gudang'  => "gudang atk",
+                'jenis_gudang'  => $req["jenis_gudang"],
             ];
             if (!is_null($req['id'])) :
                 $dataUpdate = array_merge(['updated_at' => $this->tanggal], $data);
