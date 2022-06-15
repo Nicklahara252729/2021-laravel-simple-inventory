@@ -76,7 +76,7 @@ Route::middleware(['web'])->group(function () {
      */
     Route::get('/gudang-kimia', [GudangKimiaController::class, 'index'])->name("gudangKimia");
     Route::get('/view-gudang-kimia', [GudangKimiaController::class, 'viewData'])->name("gudangKimia.viewData");
-    Route::get('/get-gudang-atk/{id}', [GudangKimiaController::class,'getData'])->name("gudangKimia.getData");
+    Route::get('/get-gudang-kimia/{id}', [GudangKimiaController::class,'getData'])->name("gudangKimia.getData");
     Route::get('/delete-gudang-kimia', [GudangKimiaController::class,'deleteData'])->name("gudangKimia.deleteData");
     Route::post('/save-gudang-kimia', [GudangKimiaController::class,'saveData'])->name("gudangKimia.saveData");
     Route::post('/save-take-out-gudang-kimia', [GudangKimiaController::class,'saveTakeOutData'])->name("gudangKimia.saveTakeOutData");

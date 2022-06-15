@@ -46,6 +46,7 @@ class EloquentHistoryRepositories implements HistoryRepositories
             'nama'           => $req['nama'],
             'tgl_take_out'   => $req['tgl_take_out'],
             'jumlah_take_out'=> $req['jumlah_take_out'],
+            'status'         => Session::get('level')
         ];
         
         

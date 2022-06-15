@@ -5,6 +5,7 @@
             <th>Nama</th>
             <th>Tanggal Take Out</th>
             <th>Jumlah</th>
+            <th>Status</th>
             <th class="disabled-sorting text-right"></th>
         </tr>
     </thead>
@@ -14,6 +15,7 @@
             <th>Nama</th>
             <th>Tanggal Take Out</th>
             <th>Jumlah</th>
+            <th>Status</th>
             <th class="text-right"></th>
         </tr>
     </tfoot>
