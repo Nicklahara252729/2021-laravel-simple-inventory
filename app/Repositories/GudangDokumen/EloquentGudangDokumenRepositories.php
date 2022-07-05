@@ -136,6 +136,7 @@ class EloquentGudangDokumenRepositories implements GudangDokumenRepositories
             'id_barang'      => $req['id_barang'],
             'tgl_take_out'   => $req['tgl_take_out'],
             'jumlah_take_out'=> $req['jumlah_take_out'],
+            'status'         => Session::get('level')
         ];
         $saveData    = $this->takeOut->create($data);
         $getData     = $this->barang->where(['id' => $req['id_barang']])->first();

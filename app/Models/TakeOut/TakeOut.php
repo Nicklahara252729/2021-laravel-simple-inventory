@@ -16,7 +16,8 @@ class TakeOut extends Model
         'id_barang',
         'nama',
         'tgl_take_out',
-        'jumlah_take_out',  
+        'jumlah_take_out',
+        'status',
         'created_at',
         'updated_at'        
     ];

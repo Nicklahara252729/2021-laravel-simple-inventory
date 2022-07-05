@@ -100,6 +100,7 @@ class EloquentGudangKimiaRepositories implements GudangKimiaRepositories
                 'nama'          => $req['nama'],                
                 'jumlah'        => $req['jumlah'],
                 'jenis_gudang'  => "gudang kimia",
+                'status'        => Session::get('level')
             ];
             if (!is_null($req['id'])) :
                 $dataUpdate = array_merge(['updated_at' => $this->tanggal], $data);

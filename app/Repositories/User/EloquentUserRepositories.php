@@ -86,7 +86,7 @@ class EloquentUserRepositories implements UserRepositories
                 'username'  => $req['username'],
                 'password'  => Hash::make($req['password']),
                 'email'     => $req['email'],
-                'level'     => $req['Staff'],
+                'level'     => strtolower($req['Staff']),
             ];
             if(!is_null($req['id'])):
                 if(is_null($req['password'])):

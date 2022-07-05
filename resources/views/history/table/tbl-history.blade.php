@@ -26,6 +26,7 @@
             <td>{{$value->nama}}</td>
             <td>{{$value->tgl_take_out}}</td>
             <td>{{$value->jumlah_take_out}}</td>
+            <td>{{$value->status}}</td>
             <td class="text-right">
                 <a href="#" class="btn btn-link btn-warning btn-just-icon edit" onclick="editData('{{$value->id}}')"><i class="material-icons">mode_edit</i></a>
             </td>

@@ -100,6 +100,7 @@ class EloquentGudangAtkRepositories implements GudangAtkRepositories
                 'nama'          => $req['nama'],                
                 'jumlah'        => $req['jumlah'],
                 'jenis_gudang'  => $req["jenis_gudang"],
+                'status'         => Session::get('level')
             ];
             if (!is_null($req['id'])) :
                 $dataUpdate = array_merge(['updated_at' => $this->tanggal], $data);
